@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Music transposer</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #222222;
+            color: white;
+        }
+
+        h1 {
+            text-align: center;
+            color: #1DCD9F;
+            margin-top: 40px;
+            font-size: 2.5em;
+        }
+
+        .intro {
+            max-width: 900px;
+            margin: 20px auto 40px auto;
+            padding: 0 20px;
+            text-align: left;
+        }
+
+        .intro h2 {
+            color: #169976;
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+
+        .intro p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            color: #cccccc;
+        }
+
+        .intro ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin-left: 20px;
+            color: #dddddd;
+        }
+
+        form {
+            max-width: 1200px;
+            margin: 0 auto 60px auto;
+            padding: 20px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        textarea {
+            flex: 1;
+            height: 300px;
+            padding: 15px;
+            font-size: 16px;
+            border-radius: 10px;
+            border: none;
+            resize: vertical;
+            background-color: #1D1D1D;
+            color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        textarea[readonly] {
+            background-color: #2a2a2a;
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        button {
+            background-color: #169976;
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 18px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #1DCD9F;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+
+            textarea {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Music Transposer</h1>
+
+    <div class="intro">
+        <h2>Instruction</h2>
+        <p>This tool is born for an amateur flute player so it transpose your notes such that the lowest note become do and only support 3 intervals.</p>
+        <p>Here’s how to input the notes: </p>
+        <ul>
+            <li>Please use do, re, mi, fa, sol, la, si</li>
+            <li>do re mi fa sol ... is for the lowest interval</li>
+            <li>Do Re Mi Fa Sol ... is for the middle interval</li>
+            <li>DO RE MI FA SOL ... is for the highest interval</li>
+            <li>You can use letter b to indicate flat notes. It should always be in lower case. For example, SIb is the correct way</li>
+        </ul>
+    </div>
+
+    <form method="post">
+        <div class="container">
+            <textarea name="input_text" placeholder="Enter your text here...">{{ input_text }}</textarea>
+            <textarea readonly placeholder="Processed text will appear here...">{{ output_text }}</textarea>
+        </div>
+        <div class="button-container">
+            <button type="submit">Process</button>
+        </div>
+    </form>
+</body>
+</html>
