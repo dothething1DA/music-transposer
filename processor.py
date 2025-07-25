@@ -21,7 +21,10 @@ for note in basic_notes:
 for i in range(len(notes)):
     note_id[notes[i]] = i
 
-def process_text(txt):
+def process_text(txt, lim):
+    if ((lim in note_id) == False):
+        return f"Error: Invalid symbol for lowest note"
+
     lowest = 100
     cur_line = 1
     txt = txt.split("\n")
@@ -37,11 +40,15 @@ def process_text(txt):
         cur_line += 1
 
     res = ""
+    lim = note_id[lim]
     for line in txt:
         note_list = line.split()
         for note in note_list:
             nid = note_id[note]
-            res += notes[nid - lowest]
+            target = nid - lowest + lim
+            if (target >= len(notes)):
+                return f"Error: Selected lowest note is too high. Please select a lower one"
+            res += notes[target]
             res += " "
         res += "\n"
 

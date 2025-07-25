@@ -124,6 +124,14 @@
     </div>
 
     <form method="post">
+    	<div class="note-selector" style="max-width: 1200px; margin: 0 auto 20px auto; padding: 0 20px;">
+            <label for="lowest_note" style="display: block; margin-bottom: 8px; font-size: 1.1em; color: #cccccc;">
+	    	Set the lowest note in the transposed version:
+	    </label>
+	    <input type="text" id="lowest_note" name="lowest_note" placeholder="e.g. sol" 
+	    value="{{ lowest_note }}"
+	    style="padding: 10px; font-size: 16px; border-radius: 8px; border: none; width: 200px; background-color: #1D1D1D; color: white;">
+	</div>
         <div class="container">
             <textarea name="input_text" placeholder="Enter your text here...">{{ input_text }}</textarea>
             <textarea readonly placeholder="Processed text will appear here...">{{ output_text }}</textarea>
